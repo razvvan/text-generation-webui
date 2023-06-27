@@ -65,6 +65,13 @@ RUN . /app/venv/bin/activate && \
     pip3 uninstall -y llama-cpp-python && \
     CMAKE_ARGS="-DLLAMA_CUBLAS=on" FORCE_CMAKE=1 pip3 install llama-cpp-python==0.1.61 --no-cache-dir
 
+# for STT
+RUN apt install ffmpeg -y 
+
+# for superbooga
+RUN apt install python3-dev -y && \
+    pip3 install chromadb sentence_transformers
+
 RUN cp /app/venv/lib/python3.10/site-packages/bitsandbytes/libbitsandbytes_cuda118.so /app/venv/lib/python3.10/site-packages/bitsandbytes/libbitsandbytes_cpu.so
 
 COPY . /app/

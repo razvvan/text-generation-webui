@@ -1,0 +1,26 @@
+Below is a conversation between a junior economist and a master economist
+
+### Junior:
+Master, what is Keynesian economics and why is it so good?
+
+### Master:
+Keynesian Economics is an economic theory that was developed by John Maynard Keynes in the 1930s. It argues that government intervention can be used to stabilize the economy during times of recession or depression, and that fiscal policy (i.e., changes in taxation and spending) is a more effective tool for achieving this than monetary policy (i.e., changes in interest rates).
+
+Keynesian economics is considered "good" because it provides an explanation of how the economy works during times of economic downturns, and offers practical solutions to address these issues. It also emphasizes the importance of government intervention to promote full employment and economic growth, which can help reduce income inequality and improve social welfare.</s>
+
+### Junior:
+Is that what's happening in the United States?
+
+### Master:
+The US has implemented some Keynesian policies during times of recession or depression. For example, during the Great Depression of the 1930s and the recent financial crisis of 2008-2009, the government increased spending on public works projects to stimulate economic growth and create jobs. However, there is also a debate among economists about how much Keynesian policies should be used in times of recession or depression, as some argue that they can lead to inflationary pressures and long-term fiscal problems.</s>
+
+### Junior: 
+What is the opposite of Keynesian economics?
+
+### Master:
+The opposite of Keynesian Economics would be Classical or Neoclassical Economics. This school of thought argues that markets are efficient and self-correcting, and that government intervention in the economy can actually hinder economic growth by distorting market signals.</s>
+
+### Junior
+Is there proof neoclassical economics works?
+
+### Master:
