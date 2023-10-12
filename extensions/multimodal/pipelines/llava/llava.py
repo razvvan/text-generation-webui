@@ -56,10 +56,13 @@ class LLaVA_v0_Pipeline(AbstractMultimodalPipeline):
 
     @staticmethod
     def embed_tokens(input_ids: torch.Tensor) -> torch.Tensor:
-        if hasattr(shared.model.model, 'embed_tokens'):
-            func = shared.model.model.embed_tokens
+        for attr in ['', 'model', 'model.model', 'model.model.model']:
+            tmp = getattr(shared.model, attr, None) if attr != '' else shared.model
+            if tmp is not None and hasattr(tmp, 'embed_tokens'):
+                func = tmp.embed_tokens
+                break
         else:
-            func = shared.model.model.model.embed_tokens  # AutoGPTQ case
+            raise ValueError('The embed_tokens method has not been found for this loader.')
 
         return func(input_ids).to(shared.model.device, dtype=shared.model.dtype)
 
@@ -143,3 +146,32 @@ class LLaVA_v0_7B_Pipeline(LLaVA_v0_Pipeline):
     @staticmethod
     def llava_projector_repo() -> str:
         return "liuhaotian/LLaVA-7b-delta-v0"
+
+
+class LLaVA_LLaMA_2_13B_Pipeline(LLaVA_v0_13B_Pipeline):
+    def __init__(self, params: dict) -> None:
+        super().__init__(params)
+
+    @staticmethod
+    def name() -> str:
+        return "llava-llama-2-13b"
+
+    @staticmethod
+    def placeholder_token_id() -> int:
+        return 0
+
+    @staticmethod
+    def llava_projector_repo() -> str:
+        return "liuhaotian/llava-llama-2-13b-chat-lightning-preview"
+
+    @staticmethod
+    def image_start() -> str:
+        return ""
+
+    @staticmethod
+    def image_end() -> str:
+        return ""
+
+    @staticmethod
+    def placeholder_embeddings() -> torch.Tensor:
+        return LLaVA_v0_Pipeline.embed_tokens(encode("<unk>"*256, add_bos_token=False)[0])

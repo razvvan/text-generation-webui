@@ -38,4 +38,8 @@ Thumbs.db
 .dockerignore
 Dockerfile
 docker-compose.yml
+.chroma
+installer_files
+/CMD_FLAGS.txt
+
 hack/*
